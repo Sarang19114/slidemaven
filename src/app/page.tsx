@@ -83,7 +83,7 @@ export default function LandingPage() {
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center pt-16 overflow-hidden">
-      <Spotlight />
+        <Spotlight />
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-b from-white/[0.08] to-transparent" />
           <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/25 to-transparent" />
@@ -96,14 +96,16 @@ export default function LandingPage() {
             className="text-center max-w-4xl mx-auto"
           >
             <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-[1.1] mt-4">
-              Your Presentations<br />
+              Your Presentations
+              <br />
               <FlipWords words={words} />
               <span className="block mt-2 bg-gradient-to-b from-white to-white/70 bg-clip-text text-transparent">
-              with AI-Driven Design at <Cover>Lightning Speed</Cover>
+                with AI-Driven Design at <Cover>Lightning Speed</Cover>
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-400 mb-10 max-w-2xl mx-auto">
-            Fast-track your presentations with AI—polished, professional, and ready to impress!
+              Fast-track your presentations with AI—polished, professional, and
+              ready to impress!
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
               <Button
@@ -168,12 +170,18 @@ export default function LandingPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="group"
+                whileHover={{ scale: 1.05, rotate: 2 }}
+                className="group relative rounded-xl border-2 border-yellow-400/60 shadow-2xl transition-all duration-300 ease-out hover:shadow-yellow-400/50"
               >
-                <Card className="p-8 bg-white/[0.03] border-white/10 hover:border-white/20 transition-all duration-300 backdrop-blur-sm relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/[0.05] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <feature.icon className="h-12 w-12 text-white mb-6 transition-transform duration-300 group-hover:scale-110" />
-                  <h3 className="text-xl font-semibold mb-3">
+                <Card className="p-8 bg-white/[0.05] border border-white/10 hover:border-yellow-400/50 transition-all duration-300 backdrop-blur-lg relative overflow-hidden rounded-xl">
+                  {/* Glowing gradient effect */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl" />
+
+                  {/* Icon with hover scale effect */}
+                  <feature.icon className="h-12 w-12 text-yellow-300 mb-6 transition-transform duration-300 group-hover:scale-110" />
+
+                  {/* Title & Description */}
+                  <h3 className="text-xl font-semibold mb-3 text-yellow-300">
                     {feature.title}
                   </h3>
                   <p className="text-gray-400 leading-relaxed">
@@ -216,18 +224,31 @@ export default function LandingPage() {
               >
                 <div className="mb-8">
                   <div className="relative inline-block">
-                    <div className="absolute inset-0 bg-white/20 rounded-full blur-2xl transition-opacity duration-300 group-hover:opacity-100 opacity-0" />
-                    <div className="w-20 h-20 bg-white/[0.03] rounded-full flex items-center justify-center border border-white/10 relative">
-                      <span className="text-3xl font-bold bg-gradient-to-b from-white to-white/70 bg-clip-text text-transparent">
+                    {/* Glowing background effect */}
+                    <div className="absolute inset-0 bg-yellow-400/20 rounded-full blur-2xl transition-opacity duration-300 group-hover:opacity-100 opacity-0" />
+
+                    {/* Number container with golden border */}
+                    <div className="w-20 h-20 bg-white/[0.03] rounded-full flex items-center justify-center border-2 border-yellow-400/60 shadow-lg relative transition-all duration-300 ease-out group-hover:scale-105 group-hover:rotate-2 group-hover:shadow-yellow-400/50">
+                      <span className="text-3xl font-bold bg-gradient-to-b from-yellow-300 to-yellow-500 bg-clip-text text-transparent">
                         {index + 1}
                       </span>
                     </div>
                   </div>
                 </div>
-                <h3 className="text-2xl font-semibold mb-4">{step.title}</h3>
-                <p className="text-gray-400 leading-relaxed">
-                  {step.description}
-                </p>
+
+                {/* Card content with hover tilt effect */}
+                <motion.div
+                  whileHover={{ scale: 1.05, rotate: 2 }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
+                  className="border-2 border-yellow-400/60 p-6 rounded-lg bg-black/30 shadow-lg transition-all duration-300 ease-out group-hover:shadow-yellow-400/50"
+                >
+                  <h3 className="text-2xl font-semibold mb-4 text-yellow-300">
+                    {step.title}
+                  </h3>
+                  <p className="text-gray-400 leading-relaxed">
+                    {step.description}
+                  </p>
+                </motion.div>
               </motion.div>
             ))}
           </div>
@@ -236,8 +257,11 @@ export default function LandingPage() {
 
       {/* Pricing Section */}
       <section id="pricing" className="py-32 relative">
+        {/* Background Gradient */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-white/[0.03] to-transparent" />
+
         <div className="container mx-auto px-4 relative">
+          {/* Section Heading */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -246,34 +270,38 @@ export default function LandingPage() {
             className="text-center mb-24"
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Simple Pricing
+              Flexible Pricing
             </h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-              One plan. All features. No compromises.
+              Choose the plan that fits you best.
             </p>
           </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            className="max-w-lg mx-auto"
-          >
-            <Card className="p-12 bg-white/[0.03] border-white/10 relative overflow-hidden group">
-              <div className="absolute inset-0 bg-gradient-to-br from-white/[0.05] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="relative">
-                <div className="text-center mb-8">
-                  <h3 className="text-2xl font-bold mb-4">Premium</h3>
+
+          {/* Pricing Cards */}
+          <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+            {/* Yearly Plan (Golden) */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+            >
+              <Card className="p-12 bg-yellow-900/[0.1] border-2 border-yellow-400/70 relative overflow-hidden group rounded-xl shadow-lg">
+                <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="relative text-center mb-8">
+                  <h3 className="text-2xl font-bold text-yellow-300 mb-4">
+                    Yearly
+                  </h3>
                   <div className="mb-6">
-                    <span className="text-6xl font-bold bg-gradient-to-b from-white to-white/70 bg-clip-text text-transparent">
-                      ₹99
+                    <span className="text-6xl font-bold bg-gradient-to-b from-yellow-300 to-yellow-500 bg-clip-text text-transparent">
+                      ₹999
                     </span>
-                    <span className="text-gray-400 ml-2">/month</span>
+                    <span className="text-gray-400 ml-2">/year</span>
                   </div>
                   <Button
                     size="lg"
                     variant="outline"
-                    className="w-full h-14 text-lg border-white/25 text-white hover:border-white hover:bg-white hover:text-black transition-all duration-300"
+                    className="w-full h-14 text-lg border-yellow-400 text-yellow-300 hover:bg-yellow-400 hover:text-black transition-all duration-300"
                   >
                     Get Started <ArrowUpRight className="ml-2 h-5 w-5" />
                   </Button>
@@ -284,21 +312,75 @@ export default function LandingPage() {
                       key={index}
                       className="flex items-center text-gray-300 group/item"
                     >
-                      <CheckCircle className="h-5 w-5 text-white mr-3 flex-shrink-0 transition-transform duration-300 group-hover/item:scale-110" />
+                      <CheckCircle className="h-5 w-5 text-yellow-300 mr-3 flex-shrink-0 transition-transform duration-300 group-hover/item:scale-110" />
                       <span>{feature}</span>
                     </div>
                   ))}
                 </div>
-              </div>
-            </Card>
-          </motion.div>
+              </Card>
+            </motion.div>
+
+            {/* Monthly Plan (Silver) */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+            >
+              <Card className="p-12 bg-gray-900/[0.1] border-2 border-gray-400/70 relative overflow-hidden group rounded-xl shadow-lg">
+                <div className="absolute inset-0 bg-gradient-to-br from-gray-400/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="relative text-center mb-8">
+                  <h3 className="text-2xl font-bold text-gray-300 mb-4">
+                    Monthly
+                  </h3>
+                  <div className="mb-6">
+                    <span className="text-6xl font-bold bg-gradient-to-b from-gray-300 to-gray-500 bg-clip-text text-transparent">
+                      ₹99
+                    </span>
+                    <span className="text-gray-400 ml-2">/month</span>
+                  </div>
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="w-full h-14 text-lg border-gray-400 text-gray-300 hover:bg-gray-400 hover:text-black transition-all duration-300"
+                  >
+                    Get Started <ArrowUpRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </div>
+                <div className="space-y-5">
+                  {premiumFeatures.map((feature, index) => (
+                    <div
+                      key={index}
+                      className={`flex items-center group/item ${
+                        index >= 2
+                          ? "text-gray-500 line-through opacity-50"
+                          : "text-gray-300"
+                      }`}
+                    >
+                      <CheckCircle
+                        className={`h-5 w-5 mr-3 flex-shrink-0 transition-transform duration-300 ${
+                          index >= 2
+                            ? "text-gray-500 opacity-50"
+                            : "text-gray-300 group-hover/item:scale-110"
+                        }`}
+                      />
+                      <span>{feature}</span>
+                    </div>
+                  ))}
+                </div>
+              </Card>
+            </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Testimonials Section */}
       <section className="py-32 relative">
+        {/* Soft Background Gradient */}
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/[0.02] to-transparent" />
+
         <div className="container mx-auto px-4 relative">
+          {/* Section Heading */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -313,6 +395,8 @@ export default function LandingPage() {
               Join thousands of satisfied users
             </p>
           </motion.div>
+
+          {/* Testimonials Grid */}
           <div className="grid md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
               <motion.div
@@ -322,26 +406,34 @@ export default function LandingPage() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className="p-8 bg-white/[0.03] border-white/10 hover:border-white/20 transition-all duration-300 backdrop-blur-sm relative group">
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/[0.05] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <Card className="p-8 bg-white/[0.05] border border-white/10 rounded-xl shadow-lg backdrop-blur-lg transition-all duration-300 hover:shadow-2xl hover:border-white/20 hover:scale-[1.02] relative group">
+                  {/* Subtle Background Glow Effect */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-400/[0.3] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
                   <div className="relative">
-                    <p className="text-gray-300 mb-6 text-lg leading-relaxed">
+                    {/* Testimonial Content */}
+                    <p className="text-gray-300 mb-6 text-lg leading-relaxed transition-colors duration-300 group-hover:text-white">
                       {testimonial.content}
                     </p>
+
+                    {/* User Info */}
                     <div className="flex items-center">
                       <div className="relative">
+                        {/* Hover Effect on Image */}
                         <div className="absolute inset-0 bg-white/20 rounded-full blur transition-opacity duration-300 group-hover:opacity-100 opacity-0" />
                         <Image
                           src={testimonial.avatar || "/placeholder.svg"}
                           alt={testimonial.name}
                           width={100}
                           height={100}
-                          className="rounded-full relative"
+                          className="rounded-full relative transition-transform duration-300 group-hover:scale-105 group-hover:brightness-110"
                         />
                       </div>
                       <div className="ml-4">
-                        <p className="font-semibold">{testimonial.name}</p>
-                        <p className="text-sm text-gray-400">
+                        <p className="font-semibold text-white">
+                          {testimonial.name}
+                        </p>
+                        <p className="text-sm text-gray-400 transition-colors duration-300 group-hover:text-gray-200">
                           {testimonial.role}
                         </p>
                       </div>
@@ -366,10 +458,10 @@ export default function LandingPage() {
             className="text-center max-w-3xl mx-auto"
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-8">
-              Ready to Create Amazing Presentations?
+              Ready to Create Turbocharged Presentations?
             </h2>
             <p className="text-xl text-gray-400 mb-12 max-w-2xl mx-auto">
-              Join thousands of users who are already creating stunning
+              Join thousands of users who are already creating W
               presentations with AI
             </p>
             <Button
@@ -394,22 +486,24 @@ export default function LandingPage() {
                   <div className="absolute inset-0 rotate-45 scale-0 bg-white transition-transform duration-300 group-hover:scale-100" />
                   <Presentation className="h-6 w-6 text-white relative transition-transform duration-300 group-hover:scale-110" />
                 </div>
-                <span className="font-bold text-xl tracking-tight">SlideMaven</span>
+                <span className="font-bold text-xl tracking-tight">
+                  SlideMaven
+                </span>
               </Link>
               <p className="text-gray-400">
-                Create stunning presentations with the power of AI
+                Create turbocharged presentations with the power of AI
               </p>
             </div>
             <div>
               <h4 className="font-semibold mb-4 text-lg">Product</h4>
               <ul className="space-y-3 text-gray-400">
                 <li>
-                  <Link href="#" className="hover:text-white transition-colors">
+                  <Link href="#features" className="hover:text-white transition-colors">
                     Features
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="hover:text-white transition-colors">
+                  <Link href="#pricing" className="hover:text-white transition-colors">
                     Pricing
                   </Link>
                 </li>
@@ -462,7 +556,9 @@ export default function LandingPage() {
             </div>
           </div>
           <div className="mt-20 pt-8 border-t border-white/10 text-center text-gray-400">
-            <p>&copy; {new Date().getFullYear()} SlideMaven. All rights reserved.</p>
+            <p>
+              &copy; {new Date().getFullYear()} SlideMaven. All rights reserved.
+            </p>
           </div>
         </div>
       </footer>
@@ -565,21 +661,21 @@ const testimonials = [
     content:
       "SlideMaven's templates are a game-changer. I can now focus on the content and let the AI handle the design.",
     name: "Akshat Jain",
-    role: "LGBTQ+",
+    role: "Business Owner", 
     avatar: "/Akshat.png",
   },
   {
     content:
       "SlideMaven has been a lifesaver. I can now focus on my core business and let the AI handle the presentation.",
     name: "Samyak Jain",
-    role: "Femboi Chakka",
+    role: "Video Editor",
     avatar: "/Samyak.png",
   },
   {
     content:
       "The AI-powered features are incredible. The quality of the presentations is consistently impressive.",
     name: "Yash Chaturvedi",
-    role: "Randi ka bacha",
+    role: "Financer",
     avatar: "/Yash.png",
   },
 ];
