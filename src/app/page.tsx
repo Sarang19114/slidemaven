@@ -132,14 +132,14 @@ export default function LandingPage() {
             style={{ y }}
             className="mt-16 relative max-w-4xl mx-auto"
           >
-            <div className="absolute -inset-1 bg-gradient-to-r from-white/20 via-white/10 to-white/20 rounded-lg blur" />
-            <Image
-              src="/Hero.png"
-              width={1200}
-              height={200}
-              alt="SlideMaven Interface"
-              className="relative rounded-lg border border-white/10 shadow-2xl"
-            />
+            <div className="absolute -inset-1 bg-gradient-to-r from-yellow-400/30 via-yellow-500/30 to-yellow-300/30 rounded-lg blur-md" />
+<Image
+  src="/Hero.png"
+  width={1200}
+  height={200}
+  alt="SlideMaven Interface"
+  className="relative rounded-lg border border-yellow-400 shadow-[0_0_15px_rgba(255,215,0,0.6)]"
+/>
           </motion.div>
         </div>
       </section>

@@ -1,63 +1,30 @@
-"use client";
+import React from "react";
+import NotFound from "@/components/global/not-found";
+import Projects from "@/components/global/projects";
+import { getAllProjects } from "@/actions/projects";
 
-import React, { useEffect, useState } from "react";
-import { HoverEffect } from "@/components/ui/card-hover-effect";
-import { getAllProjects } from "@/actions/projects"; 
-
-// Define the project type
-interface Project {
-  title: string;
-  description: string;
-  link: string;
-  img: string;
-}
-
-const Page = () => {
-  const [projects, setProjects] = useState<Project[]>([]); 
-
-  useEffect(() => {
-    async function fetchProjects() {
-      try {
-        const response = await getAllProjects();
-
-        if (response.status === 200 && response.data) {
-          setProjects(
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            response.data.map((project: any) => ({
-              title: project.title,
-              description: "A project created using our AI-powered system.",
-              link: `/project/${project.id}`,
-              img: project.thumbnail || "https://assets.aceternity.com/manu.png",
-            }))
-          );
-        } else {
-          console.error("Failed to fetch projects:", response.error || "Unknown error");
-        }
-      } catch (error) {
-        console.error("Error fetching projects:", error);
-      }
-    }
-
-    fetchProjects();
-  }, []);
+const DashboardPage = async () => {
+  const allProjects = await getAllProjects();
 
   return (
-    <div className="min-h-screen w-full overflow-y-auto px-4 py-6">
-      <h1 className="text-3xl font-mono font-semibold text-left mb-4">
-        Your Projects 🗿
-      </h1>
-      <p className="text-lg text-left font-mono">
-        Manage and access all your work in one place.
-      </p>
-      <div className="w-full overflow-auto">
-        {projects.length > 0 ? (
-          <HoverEffect items={projects} />
-        ) : (
-          <p className="text-center text-gray-500">No projects found.</p>
-        )}
+    <div className="w-full flex flex-col gap-6 relative md:p-0 p-4">
+      <div className="flex flex-col-reverse items-start w-full gap-6 sm:flex-row sm:justify-between sm:items-center">
+        <div className="flex flex-col items-start">
+          <h1 className="text-2xl font-mono font-semibold dark:text-primary backdrop-blur-lg">
+            Projects
+          </h1>
+          <p className="text-base font-mono font-normal dark:text-gray-400">
+            Check All Your Unique Projects
+          </p>
+        </div>
       </div>
+      {allProjects.data && allProjects.data.length > 0 ? (
+        <Projects projects={allProjects.data} />
+      ) : (
+        <NotFound />
+      )}
     </div>
   );
 };
 
-export default Page;
+export default DashboardPage;
